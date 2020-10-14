@@ -1,0 +1,23 @@
+<h1>Show Lead</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @lead.name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @lead.phone %>
+  </li>
+
+  <li>
+    <strong>Date attendance:</strong>
+    <%= @lead.date_attendance %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.lead_path(@conn, :edit, @lead) %></span>
+<span><%= link "Back", to: Routes.lead_path(@conn, :index) %></span>

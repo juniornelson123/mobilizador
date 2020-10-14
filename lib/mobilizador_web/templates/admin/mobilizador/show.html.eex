@@ -1,0 +1,23 @@
+<h1>Show Mobilizador</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @mobilizador.name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @mobilizador.phone %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @mobilizador.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.mobilizador_path(@conn, :edit, @mobilizador) %></span>
+<span><%= link "Back", to: Routes.mobilizador_path(@conn, :index) %></span>

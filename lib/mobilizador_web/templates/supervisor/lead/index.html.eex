@@ -1,0 +1,41 @@
+<h1>Listing Leads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Date attendance</th>
+      <th>Mobilizador</th>
+      <th>Vai votar?</th>
+      <th>Valido?</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for lead <- @leads do %>
+    <tr>
+      <td><%= lead.name %></td>
+      <td><%= lead.phone %></td>
+      <td><%= lead.date_attendance %></td>
+      <td><%= lead.user.name %> - <%= lead.user.email %></td>
+      <td><%= lead.vote %></td>
+      <td><%= lead.valid %></td>
+
+      <td>
+        <%= if lead.valid do %>
+          <span><%= link "Marcar como invalido", to: Routes.supervisor_lead_path(@conn, :update, lead, %{"lead" => %{"valid" => false}}), method: :put %></span>
+        <% else %>
+          <span><%= link "Marcar como valido", to: Routes.supervisor_lead_path(@conn, :update, lead, %{"lead" => %{"valid" => true}}), method: :put %></span>
+        <% end %>
+        <span><%= link "Show", to: Routes.supervisor_lead_path(@conn, :show, lead) %></span>
+        <span><%= link "Edit", to: Routes.supervisor_lead_path(@conn, :edit, lead) %></span>
+        <span><%= link "Delete", to: Routes.supervisor_lead_path(@conn, :delete, lead), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Lead", to: Routes.supervisor_lead_path(@conn, :new) %></span>

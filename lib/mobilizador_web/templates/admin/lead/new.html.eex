@@ -1,0 +1,4 @@
+<h1>New Lead</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.lead_path(@conn, :create)) |> Map.put(:users, @users |> Enum.map(fn x -> {"#{x.id} - #{x.name} - #{x.email}", x.id} end)) %>
+<span><%= link "Back", to: Routes.lead_path(@conn, :index) %></span>

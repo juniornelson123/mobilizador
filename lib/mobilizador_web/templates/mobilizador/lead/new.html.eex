@@ -1,0 +1,4 @@
+<h1>New Lead</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.mobilizador_lead_path(@conn, :create)) %>
+<span><%= link "Back", to: Routes.mobilizador_lead_path(@conn, :index) %></span>

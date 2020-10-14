@@ -1,0 +1,30 @@
+<h1>Listing Materials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for material <- @materials do %>
+    <tr>
+      <td><%= material.name %></td>
+      <td><%= material.file %></td>
+      <td><%= material.description %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.material_path(@conn, :show, material) %></span>
+        <span><%= link "Edit", to: Routes.material_path(@conn, :edit, material) %></span>
+        <span><%= link "Delete", to: Routes.material_path(@conn, :delete, material), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Material", to: Routes.material_path(@conn, :new) %></span>

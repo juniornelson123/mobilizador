@@ -1,0 +1,5 @@
+<h1>Editar Supervisor</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.supervisor_path(@conn, :update, @user)) %>
+
+<span><%= link "Back", to: Routes.supervisor_path(@conn, :index) %></span>

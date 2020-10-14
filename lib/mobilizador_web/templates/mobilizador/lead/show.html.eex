@@ -1,0 +1,33 @@
+<h1>Show Lead</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @lead.name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @lead.phone %>
+  </li>
+
+  <li>
+    <strong>Date attendance:</strong>
+    <%= @lead.date_attendance %>
+  </li>
+
+  <%= if @lead.link_attendance do %>
+    <li>
+      <strong>Link:</strong>
+      <%= link "Link", to: Routes.link_attendance_path(@conn, :show, @lead.link_attendance), target: "_blank" %>
+    </li>  
+  <% else %>
+    <td>-</td>
+  <% end %>
+
+
+</ul>
+
+<span><%= link "Edit", to: Routes.mobilizador_lead_path(@conn, :edit, @lead) %></span>
+<span><%= link "Back", to: Routes.mobilizador_lead_path(@conn, :index) %></span>

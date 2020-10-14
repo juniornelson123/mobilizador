@@ -1,0 +1,23 @@
+<h1>Show Material</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @material.name %>
+  </li>
+
+  <li>
+    <strong>File:</strong>
+    <%= @material.file %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @material.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.material_path(@conn, :edit, @material) %></span>
+<span><%= link "Back", to: Routes.material_path(@conn, :index) %></span>

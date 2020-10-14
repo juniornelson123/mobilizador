@@ -1,0 +1,30 @@
+<h1>Listar Supervisor</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.email %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.supervisor_path(@conn, :show, user) %></span>
+        <span><%= link "Edit", to: Routes.supervisor_path(@conn, :edit, user) %></span>
+        <span><%= link "Delete", to: Routes.supervisor_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New user", to: Routes.supervisor_path(@conn, :new) %></span>

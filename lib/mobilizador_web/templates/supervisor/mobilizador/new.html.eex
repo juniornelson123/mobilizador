@@ -1,0 +1,5 @@
+<h1>Novo Mobilizador</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.supervisor_mobilizador_path(@conn, :create)) |> Map.put(:users, @users |> Enum.map(fn x -> {"#{x.id} - #{x.name} - #{x.email}", x.id} end)) %>
+
+<span><%= link "Back", to: Routes.supervisor_mobilizador_path(@conn, :index) %></span>

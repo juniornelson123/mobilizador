@@ -1,0 +1,23 @@
+<h1>Show Supervisor</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @supervisor.name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @supervisor.phone %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @supervisor.email %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.supervisor_path(@conn, :edit, @supervisor) %></span>
+<span><%= link "Back", to: Routes.supervisor_path(@conn, :index) %></span>
